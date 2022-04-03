@@ -7,6 +7,25 @@
 <title>도서 등록</title>
 </head>
 <body>
+	<%
+		if (request.getParameter("result") != null) {
+			int result = Integer.parseInt(request.getParameter("result"));
+			if (result >= 1) {
+				%>
+				<script>
+					alert("저장되었습니다.");
+				</script>
+				<%
+			}
+			else {
+				%>
+				<script>
+					alert("저장에 실패했습니다.");
+				</script>
+				<%
+			}
+		}
+	%>
 	<div>
 		<form action ="saveBook.jsp" method="post" enctype="multipart/form-data">
 			도서 제목: <input type="text" name="bookName"><br>

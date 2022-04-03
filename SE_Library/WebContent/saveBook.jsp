@@ -30,14 +30,26 @@
 			String bookDescription = multi.getParameter("bookDescription");
 			String bookImageName = multi.getFilesystemName("bookImage");
 			
-			String sql = "insert into book (b_name, b_author, b_publisher, b_publishYear, b_description, b_imageName) values (?, ?, ?, ?, ?, ?)";
-			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, bookName);
-			pstmt.setString(2, bookAuthor);
-			pstmt.setString(3, bookPublisher);
-			pstmt.setString(4, bookPublishYear);
-			pstmt.setString(5, bookDescription);
-			pstmt.setString(6, bookImageName);
+			if (bookImageName != null) {
+			
+				String sql = "insert into book (b_name, b_author, b_publisher, b_publishYear, b_description, b_imageName) values (?, ?, ?, ?, ?, ?)";
+				pstmt = conn.prepareStatement(sql);
+				pstmt.setString(1, bookName);
+				pstmt.setString(2, bookAuthor);
+				pstmt.setString(3, bookPublisher);
+				pstmt.setString(4, bookPublishYear);
+				pstmt.setString(5, bookDescription);
+				pstmt.setString(6, bookImageName);
+			}
+			else {
+				String sql = "insert into book (b_name, b_author, b_publisher, b_publishYear, b_description) values (?, ?, ?, ?, ?)";
+				pstmt = conn.prepareStatement(sql);
+				pstmt.setString(1, bookName);
+				pstmt.setString(2, bookAuthor);
+				pstmt.setString(3, bookPublisher);
+				pstmt.setString(4, bookPublishYear);
+				pstmt.setString(5, bookDescription);
+			}
 			
 			result = pstmt.executeUpdate();
 	
@@ -51,21 +63,7 @@
 				conn.close();
 		}
 		
-		if (result >= 1) {
-			%>
-			<script>
-				alert("저장되었습니다.");
-			</script>
-			<%
-		}
-		else {
-			%>
-			<script>
-				alert("저장에 실패했습니다.");
-			</script>
-			<%
-		}
-		response.sendRedirect("BookRegister.jsp");
+		response.sendRedirect("BookRegister.jsp?result="+result);
 		%>
 </body>
 </html>
