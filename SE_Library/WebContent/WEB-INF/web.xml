@@ -4,34 +4,27 @@
 		<role-name>manager</role-name>
 	</security-role>
 	<security-constraint>
+		<display-name>SElibrary Security</display-name>
 		<web-resource-collection>
 			<web-resource-name>SE_Library</web-resource-name>
-			<url-pattern>/test.jsp</url-pattern>
-			<http-method>GET</http-method>
+			<url-pattern>/admin_process.jsp</url-pattern>
 		</web-resource-collection>
 		<auth-constraint>
-			<description></description>
+			<description>권한 관리자명</description>
 			<role-name>manager</role-name>
 		</auth-constraint>
 	</security-constraint>
 	<login-config>
 		<auth-method>FORM</auth-method>
 		<form-login-config>
-			<form-login-page>/login.jsp</form-login-page>
+			<form-login-page>/admin_login.jsp</form-login-page>
 			<form-error-page>/login_failed.jsp</form-error-page>
 		</form-login-config>
 	</login-config>
 	
-	<!--
-	<error-page>
-		<error-code>500</error-code>
-		<location>/c11/errorCode_error.jsp</location>
-	</error-page>
-	-->
-	
-	<error-page>
-		<exception-type>java.lang.Exception</exception-type>
-		<location>/exceptionType_error.jsp</location>
-	</error-page>
+   <error-page>
+   		<error-code>404</error-code>
+   		<location>/exceptionNoPage.jsp</location>
+   </error-page>
 	
 </web-app>
