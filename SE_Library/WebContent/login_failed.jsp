@@ -1,4 +1,4 @@
 <%@ page contentType="text/html; charset=utf-8" %>
 <%
-	response.sendRedirect("test.jsp?error=1");
+	response.sendRedirect("admin_login.jsp?error=1");
 %>
