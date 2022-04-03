@@ -21,13 +21,13 @@
 			String sql = "select * from book";
 			pstmt = conn.prepareStatement(sql);
 			rs = pstmt.executeQuery();
-			
+	
 			while (rs.next()) {
-				int id = rs.getInt("id");
-				String title = rs.getString("title");
-				String author = rs.getString("author");
-				String publisher = rs.getString("publisher");
-				String publishDate = rs.getString("publishDate");
+				int id = rs.getInt("b_id");
+				String title = rs.getString("b_name");
+				String author = rs.getString("b_author");
+				String publisher = rs.getString("b_publisher");
+				int publishDate = rs.getInt("b_publishYear");
 				%>
 				<tr>
 					<td><%=id %></td>
@@ -36,7 +36,7 @@
 					<td><%=publisher %></td>
 					<td><%=publishDate %></td>
 				</tr>
-		<%
+				<%
 			}
 		} catch (SQLException e) {
 			out.print("Book 테이블 호출 실패.<br/>");
