@@ -63,7 +63,7 @@
 				conn.close();
 		}
 		
-		response.sendRedirect("BookRegister.jsp?result="+result);
+		response.sendRedirect("addBook.jsp?result="+result);
 		%>
 </body>
 </html>
