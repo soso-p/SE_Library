@@ -45,6 +45,10 @@
     	  		<p class="lead my-3">오류 페이지</p>
     	 		<p class="lead mb-0"><p class="text-white font-weight-bold">존재하지 않는 페이지에 접근하셨습니다. </p>
     		</div>
+    		<div class="col-md-6 px-0" style="text-align:center; display:flex;">
+    			<img data-src="holder.js/300x300" class="img-thumbnail" alt="300x300" src="./resources/image/SElibrary2.jpeg" 
+					data-holder-rendered="true" style="width: 300px; height:300px;margin:auto; display:inline-block;">
+    		</div>
     </div>
 </div>
  	
