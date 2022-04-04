@@ -20,7 +20,7 @@
 			      <div class="col-4 text-center">
 			        <a class="blog-header-logo text-dark"
 			        	style="font-weight: bold;
-			        	font-size:2.0rem;">SE 도서목록</a>
+			        	font-size:2.0rem;">SE 도서목록 검색 결과</a>
 			      </div>
 			       <div class="col-4">
 			        <a class="blog-header-logo text-dark" 
@@ -32,15 +32,11 @@
 		</div>
 	</div>
  	<div class="container" align="center">
-	 	<form action="search_result.jsp" class="form-horizontal mb-5">
-		 	<div class="form-inline form-group pull-right">
-		 		<label for="search" class="col-sm-2 control-label font-weight-bold">도서 제목 검색</label>
-				<input class="form-control col-sm-6" type="text" id="search" name="search" placeholder="Search" autocomplete="off">
-				<div class="col-sm-1">
-					<button class="btn btn-dark" type="submit">Search</button>		 	
-				</div>
-		 	</div>
-		</form>
+ 		<%
+ 			String word = request.getParameter("search");
+ 			if (word==null || word=="")
+ 				word="";
+ 		%>
 		<%@ include file="dbconn.jsp" %>
 		<table class="table table-striped table-bordered text-center">
 			<tr>
@@ -55,7 +51,7 @@
 			ResultSet rs = null;
 			PreparedStatement pstmt = null;
 			try {
-				String sql = "select * from book";
+				String sql = "select * from book where b_name like '%"+ word +"%'";
 				pstmt = conn.prepareStatement(sql);
 				rs = pstmt.executeQuery();
 		

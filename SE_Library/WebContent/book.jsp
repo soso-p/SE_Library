@@ -52,12 +52,10 @@
 			int publishYear = rs.getInt("b_publishYear");
 			String description = rs.getString("b_description");
 			String imageName = rs.getString("b_imageName");
-			String saveDirectory = application.getRealPath("/imageStorage");
-			saveDirectory += ("/"+imageName);
 			%>
 			<div class="row">
 			<div class ="col-md-4">
-				<img src="imageStorage/<%=imageName %>" style="width: 100%"/>
+				<img src="./resources/image/<%=imageName %>" style="width: 100%"/>
 			</div>
 			<div  class="col-md-8"	>
 				<h3><%=title %></h3>

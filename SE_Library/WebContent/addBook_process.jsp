@@ -16,7 +16,7 @@
 		PreparedStatement pstmt = null;
 		int result = 0;
 		try {
-			String saveFolder = request.getSession().getServletContext().getRealPath("/imageStorage");
+			String saveFolder = request.getSession().getServletContext().getRealPath("/resources/image");
 			
 			String encType = "UTF-8";
 			int maxSize = 5 * 1024 * 1024;
